@@ -104,7 +104,7 @@ p largest_contiguous_subsum1(list3)
 
 def largest_contiguous_subsum2(list)
   # # O(n)
-  max_sum = list.sum
+  max_sum = -1/0.0
   sum_ending_here = 0
 
   # n * 3 => O(n)
@@ -113,6 +113,8 @@ def largest_contiguous_subsum2(list)
     max_sum = sum_ending_here if sum_ending_here > max_sum
     sum_ending_here = 0 if sum_ending_here < 0
   end
+
+  max_sum
 end
 
 # # O(1)
@@ -132,7 +134,7 @@ end
   # end
 
   # largest_sum
-end
+# end
 
 
 p largest_contiguous_subsum2(list1)
