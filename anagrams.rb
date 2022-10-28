@@ -4,8 +4,6 @@ def first_anagram?(str1, str2)
   str1.split("").permutation.map {|perm| perm.join("")}.include?(str2)
 end
 
-
-
 # complexity is n! + n => O(n!)
 
 
@@ -32,6 +30,7 @@ def third_anagram?(str1, str2)
   str1.split("").sort.join("") == str2.split("").sort.join("")
 end
 
+# n + n log n + n + n log n
 # complexity is 2 * n log n => O(n log n)
 
 def hash_chars(str)

@@ -41,6 +41,7 @@ end
 
 def two_sum?(arr, target_sum)
   h = hash_builder(arr)
+  
   arr.each_with_index do |el, i|
     delta = target_sum - el
     h_of = h[delta]
