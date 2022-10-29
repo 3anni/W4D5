@@ -1,14 +1,14 @@
 class MinMaxStack
   attr_reader :max, :min
 
-  def initialize(store = [])
-    @store = store
+  def initialize
+    @store = []
     @max = -1/0.0
     @min = 1/0.0
   end
 
   def to_a
-    @store.dup
+    @store
   end
 
   def push(el)
@@ -32,6 +32,10 @@ class MinMaxStack
 
   def empty?
     @store.empty?
+  end
+
+  def size
+    @store.size
   end
 
 end

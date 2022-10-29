@@ -6,21 +6,23 @@ class StackQueue
     @out_stack = MyStack.new
   end
 
-  def enqueue(el)
-    @store_in.push(el)
-  end
-
-  def dequeue
-    queuify if @out_stack.empty?
-    @out_stack.pop
+  def size
+    @in_stack.size + @out_stack.size
   end
 
   def empty?
-    @out >= @store_in.length
+    @in_stack.empty? && @out_stack.empty?
   end
 
-  def size
-    @in_stack.size + @out_stack.size
+  def enqueue(el)
+    # O(1)
+    @in_stack.push(el)
+  end
+
+  def dequeue
+    # O(1), O(~n/2) < n/2 of times
+    queuify if @out_stack.empty?
+    @out_stack.pop
   end
 
   private

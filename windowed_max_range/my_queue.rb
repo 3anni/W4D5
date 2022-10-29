@@ -4,7 +4,7 @@ class MyQueue
   end
 
   def enqueue(el)
-    @store << el
+    @store.push(el)
   end
 
   def dequeue

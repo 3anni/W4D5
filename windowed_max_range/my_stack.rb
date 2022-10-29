@@ -1,21 +1,14 @@
 class MyStack
-  # attr_reader :max, :min
 
   def initialize(store = [])
-    # @max = -1/0.0
-    # @min = 1/0.0
-    @store = Array.new
+    @store = store
   end
 
   def push(el)
-    # @max = [el,max].max
-    # @max = [el,min].min
-    @store << el
+    @store.push(el)
   end
 
   def pop
-    # max = @store[0..-2].max if @store.last == max
-    # min = @store[0..-2].max if @store.last == min
     @store.pop
   end
 

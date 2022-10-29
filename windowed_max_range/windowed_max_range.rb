@@ -4,21 +4,24 @@ require 'byebug'
 
 def windowed_max_range(arr, window_size)
   # start the queue with the first window_size elements
-  q = MinMaxStackQueue.new
-  (0...window_size).each { |i| q.enqueue(arr[i])}
+  queue = MinMaxStackQueue.new
+  max_range = -1/0.0
 
   # debugger
   # establish the max
-  max = q.max - q.min
 
-  (window_size...arr.length).each do |i|
-    el = arr[i]
-    q.dequeue
-    q.enqueue(el)
-    max = [q.max - q.min, max].max
+
+  arr.each_with_index do |el, i|
+    queue.enqueue(el)
+    queue.dequeue if queue.size > window_size
+
+    if queue.size == window_size
+      current_range = queue.max - queue.min
+      max_range = current_range if !max_range || current_range > max_range
+    end
   end
 
-  max
+  max_range
 end
 
 

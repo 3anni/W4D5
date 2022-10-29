@@ -12,20 +12,17 @@
 
 require 'byebug'
 
-
-
-
 def windowed_max_range(arr, window_size)
-  current_max_range = nil
+  best_max = nil
 
   (0..arr.length - window_size).each do |i|
     j = i + window_size - 1
-    min = arr[i..j].min
-    max = arr[i..j].max
-    current_max_range.nil? ? current_max_range = max-min : current_max_range = [current_max_range, max - min].max
+    window = arr[i..j]
+    current_max = window.max - window.min
+    best_max = current_max if !best_max || current_max > best_max
   end
 
-  current_max_range
+  best_max
 end
 
 arr = [1,2,3,5]
@@ -38,48 +35,3 @@ p windowed_max_range(arr, 3)
 
 
 
-
-
-# Liekly gonna be asking you to do linear operations
-# focus on first 3 psets from Friday for runtime problems
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-
-# highs
-# passing the test
-
-# lows
-# chess project debugging
-
-# christine
-# evgenii
-# nestor
-# kaushal
-# rex
-# andrea
-# nestor
-# alex
-# nishant (ahnt)
-# ziyuan
-# patrick
-
-
-
-
-
-
-
-# review inheritance in your practice probles
