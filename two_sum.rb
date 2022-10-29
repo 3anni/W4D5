@@ -41,7 +41,7 @@ end
 
 def two_sum?(arr, target_sum)
   h = hash_builder(arr)
-  
+
   arr.each_with_index do |el, i|
     delta = target_sum - el
     h_of = h[delta]
@@ -52,19 +52,43 @@ def two_sum?(arr, target_sum)
   false
 end
 
-# n + n
+def two_sum_lecture?(arr, target_sum)
+  values = {}
 
+  arr.each do |el|
+    target_val = target_sum - el
+    return true if values.has_key?(target_val)
+    values[el] = true
+  end
+
+  false
+end
+
+
+# n + n
 arr = [0, 1, 5, 7]
 p bad_two_sum?(arr, 6) # => should be true
 p bad_two_sum?(arr, 10) # => should be false
 
-
 p okay_two_sum?(arr, 6) # => should be true
 p okay_two_sum?(arr, 10) # => should be false
 
-
-
 p two_sum?(arr, 6) # => should be true
 p two_sum?(arr, 10) # => should be false
+
+
+p two_sum_lecture?(arr, 6) # => should be true
+p two_sum_lecture?(arr, 10) # => should be false
+
+
+
+
+
+
+
+
+
+
+
 
 
